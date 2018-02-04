@@ -1,0 +1,63 @@
+var _user$project$TypeSystem$findCarModel = function (cars) {
+	return A2(
+		_elm_lang$core$List$map,
+		function (_) {
+			return _.model;
+		},
+		cars);
+};
+var _user$project$TypeSystem$double = function () {
+	var scores = {
+		ctor: '::',
+		_0: 316,
+		_1: {
+			ctor: '::',
+			_0: 320,
+			_1: {
+				ctor: '::',
+				_0: 312,
+				_1: {
+					ctor: '::',
+					_0: 370,
+					_1: {
+						ctor: '::',
+						_0: 337,
+						_1: {
+							ctor: '::',
+							_0: 318,
+							_1: {
+								ctor: '::',
+								_0: 314,
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		}
+	};
+	var multiplier = 2;
+	return A2(
+		_elm_lang$core$List$map,
+		function (x) {
+			return x * multiplier;
+		},
+		scores);
+}();
+var _user$project$TypeSystem$Car = F3(
+	function (a, b, c) {
+		return {make: a, model: b, year: c};
+	});
+var _user$project$TypeSystem$cars = {
+	ctor: '::',
+	_0: A3(_user$project$TypeSystem$Car, 'Ford', 'Explorer', 2007),
+	_1: {
+		ctor: '::',
+		_0: A3(_user$project$TypeSystem$Car, 'Chevy', 'Volt', 2016),
+		_1: {ctor: '[]'}
+	}
+};
+var _user$project$TypeSystem$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	_elm_lang$html$Html$text(
+		_elm_lang$core$Basics$toString(
+			_user$project$TypeSystem$findCarModel(_user$project$TypeSystem$cars))));

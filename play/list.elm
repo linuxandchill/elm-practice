@@ -23,6 +23,7 @@ filtering arg =
     List.filter isEven arg
 
 
+isEven : Int -> Bool
 isEven num =
     if num % 2 == 0 then
         True

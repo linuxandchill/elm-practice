@@ -1,37 +1,14 @@
-var _user$project$Playground$whereToPark = function (speed) {
-	var _p0 = speed;
-	switch (_p0) {
-		case 7.67:
-			return 'low earth orbit';
-		case 3.8:
-			return 'medium';
-		case 3.07:
-			return 'high';
-		default:
-			return 'no parking';
-	}
+var _user$project$Playground$printRecord = function (person) {
+	return _elm_lang$core$String$length(person.name);
 };
+var _user$project$Playground$Person = F2(
+	function (a, b) {
+		return {name: a, age: b};
+	});
 var _user$project$Playground$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
-	_elm_lang$html$Html$text(
-		_user$project$Playground$whereToPark(7.67)));
-var _user$project$Playground$add = F2(
-	function (x, y) {
-		return x + y;
-	});
-var _user$project$Playground$escapeEarth = F3(
-	function (velocity, speed, fuelStatus) {
-		var whereToLand = function (fuelStatus) {
-			return _elm_lang$core$Native_Utils.eq(fuelStatus, 'low') ? 'Land on droneship' : 'Land on launchpad';
-		};
-		var orbitalSpeedInKmPerSec = 7.67;
-		var escapeVelocityInKmPerSec = 11.186;
-		return (_elm_lang$core$Native_Utils.cmp(velocity, escapeVelocityInKmPerSec) > 0) ? 'Bye bitch' : (_elm_lang$core$Native_Utils.eq(speed, orbitalSpeedInKmPerSec) ? 'Stay' : whereToLand(fuelStatus));
-	});
-var _user$project$Playground$time = F2(
-	function (startTime, endTime) {
-		return endTime - startTime;
-	});
-var _user$project$Playground$speed = F2(
-	function (distance, time) {
-		return distance / time;
-	});
+	function () {
+		var bob = A2(_user$project$Playground$Person, 'Bob', 39);
+		return _elm_lang$html$Html$text(
+			_elm_lang$core$Basics$toString(
+				_user$project$Playground$printRecord(bob)));
+	}());

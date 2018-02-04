@@ -1,0 +1,49 @@
+var _user$project$Todos$keep = F2(
+	function (visibility, tasks) {
+		var _p0 = visibility;
+		switch (_p0.ctor) {
+			case 'All':
+				return tasks;
+			case 'Active':
+				return A2(
+					_elm_lang$core$List$filter,
+					function (task) {
+						return !task.completed;
+					},
+					tasks);
+			default:
+				return A2(
+					_elm_lang$core$List$filter,
+					function (task) {
+						return task.completed;
+					},
+					tasks);
+		}
+	});
+var _user$project$Todos$walk = {task: 'walk', completed: true};
+var _user$project$Todos$feed = {task: 'Feed Dog', completed: false};
+var _user$project$Todos$tasks = {
+	ctor: '::',
+	_0: _user$project$Todos$feed,
+	_1: {
+		ctor: '::',
+		_0: _user$project$Todos$walk,
+		_1: {ctor: '[]'}
+	}
+};
+var _user$project$Todos$Task = F2(
+	function (a, b) {
+		return {task: a, completed: b};
+	});
+var _user$project$Todos$Active = {ctor: 'Active'};
+var _user$project$Todos$Completed = {ctor: 'Completed'};
+var _user$project$Todos$All = {ctor: 'All'};
+var _user$project$Todos$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	_elm_lang$html$Html$text(
+		_elm_lang$core$Basics$toString(
+			A2(
+				_elm_lang$core$List$map,
+				function (x) {
+					return x.task;
+				},
+				A2(_user$project$Todos$keep, _user$project$Todos$All, _user$project$Todos$tasks)))));
