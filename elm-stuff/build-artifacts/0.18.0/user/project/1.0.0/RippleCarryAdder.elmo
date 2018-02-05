@@ -1,0 +1,39 @@
+var _user$project$RippleCarryAdder$inverter = function (a) {
+	var _p0 = a;
+	switch (_p0) {
+		case 0:
+			return 1;
+		case 1:
+			return 0;
+		default:
+			return -1;
+	}
+};
+var _user$project$RippleCarryAdder$orGate = F2(
+	function (a, b) {
+		return a | b;
+	});
+var _user$project$RippleCarryAdder$andGate = F2(
+	function (a, b) {
+		return a & b;
+	});
+var _user$project$RippleCarryAdder$halfAdder = F2(
+	function (a, b) {
+		var carryOut = A2(_user$project$RippleCarryAdder$andGate, a, b);
+		var e = _user$project$RippleCarryAdder$inverter(
+			A2(_user$project$RippleCarryAdder$andGate, a, b));
+		var d = A2(_user$project$RippleCarryAdder$orGate, a, b);
+		var sumDigit = A2(_user$project$RippleCarryAdder$andGate, d, e);
+		return {carry: carryOut, sum: sumDigit};
+	});
+var _user$project$RippleCarryAdder$fullAdder = F3(
+	function (a, b, carryIn) {
+		var firstResult = A2(_user$project$RippleCarryAdder$halfAdder, b, carryIn);
+		var secondResult = A2(_user$project$RippleCarryAdder$halfAdder, a, firstResult.sum);
+		var finalCarry = A2(_user$project$RippleCarryAdder$orGate, firstResult.carry, secondResult.carry);
+		return {carry: finalCarry, sum: secondResult.sum};
+	});
+var _user$project$RippleCarryAdder$AdderRecord = F2(
+	function (a, b) {
+		return {carry: a, sum: b};
+	});
